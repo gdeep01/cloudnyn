@@ -30,24 +30,23 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
             <Button 
               size="lg" 
-              onClick={() => navigate("/dashboard")}
-              className="bg-gradient-to-r from-[#E4405F] to-[#F77737] hover:opacity-90 text-white glow-accent"
+              onClick={() => navigate("/pricing")}
+              className="bg-gradient-to-r from-primary to-blue-500 hover:opacity-90 glow-primary"
             >
-              <Instagram className="mr-2 h-5 w-5" />
-              Connect Instagram
+              <Sparkles className="mr-2 h-5 w-5" />
+              Get Started Free
             </Button>
             <Button 
               size="lg"
               onClick={() => navigate("/dashboard")}
-              className="bg-gradient-to-r from-[#FF0000] to-[#CC0000] hover:opacity-90 text-white"
+              variant="outline"
             >
-              <Youtube className="mr-2 h-5 w-5" />
-              Connect YouTube
+              View Demo
             </Button>
           </div>
 
           <p className="text-sm text-muted-foreground">
-            No credit card required • Free 7-day trial
+            No credit card required • 7-day free trial
           </p>
         </div>
       </section>
@@ -103,11 +102,11 @@ const Index = () => {
           </p>
           <Button 
             size="lg"
-            onClick={() => navigate("/dashboard")}
+            onClick={() => navigate("/pricing")}
             className="bg-gradient-to-r from-primary to-blue-500 hover:opacity-90 glow-primary"
           >
             <Sparkles className="mr-2 h-5 w-5" />
-            Get Started Free
+            View Pricing
           </Button>
         </div>
       </section>

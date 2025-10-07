@@ -4,11 +4,15 @@ import { Download, TrendingUp, Target, Calendar } from "lucide-react";
 import { PerformanceChart } from "@/components/dashboard/PerformanceChart";
 import { TrendsChart } from "@/components/dashboard/TrendsChart";
 import { PrescriptivePanel } from "@/components/dashboard/PrescriptivePanel";
+import { SubscriptionStatus } from "@/components/dashboard/SubscriptionStatus";
 
 const Dashboard = () => {
   return (
     <div className="min-h-screen p-6 md:p-8">
       <div className="max-w-7xl mx-auto space-y-8 animate-fade-in">
+        {/* Subscription Status */}
+        <SubscriptionStatus />
+
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
