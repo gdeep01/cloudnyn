@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Sparkles, Clock, Hash, Video } from "lucide-react";
+import { Clock, Hash, Video } from "lucide-react";
 import { useState } from "react";
+import cloudnynLogo from "@/assets/cloudnyn-logo.png";
 
 const actionPlan = [
   {
@@ -33,7 +34,7 @@ const actionPlan = [
     type: "Post",
     topic: "Community engagement question",
     hashtags: "#Community #Engagement #AskMeAnything",
-    icon: Sparkles,
+    icon: () => <img src={cloudnynLogo} alt="CloudNyn" className="h-5 w-auto" />,
   },
 ];
 
@@ -59,7 +60,7 @@ export const PrescriptivePanel = () => {
           disabled={isGenerating}
           className="bg-gradient-to-r from-primary to-blue-500 hover:opacity-90"
         >
-          <Sparkles className={`mr-2 h-4 w-4 ${isGenerating ? "animate-spin" : ""}`} />
+          <img src={cloudnynLogo} alt="CloudNyn" className={`mr-2 h-4 w-auto ${isGenerating ? "animate-spin" : ""}`} />
           {isGenerating ? "Analyzing..." : "Refresh Insights"}
         </Button>
       </div>
@@ -108,7 +109,7 @@ export const PrescriptivePanel = () => {
 
       <div className="bg-accent/10 border border-accent/20 rounded-lg p-4">
         <div className="flex items-start gap-3">
-          <Sparkles className="h-5 w-5 text-accent mt-0.5" />
+          <img src={cloudnynLogo} alt="CloudNyn" className="h-5 w-auto mt-0.5" />
           <div>
             <p className="font-medium text-accent mb-1">AI Insight</p>
             <p className="text-sm text-muted-foreground">

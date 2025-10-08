@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { Sparkles } from "lucide-react";
 import { z } from "zod";
+import cloudnynLogo from "@/assets/cloudnyn-logo.png";
 
 const authSchema = z.object({
   email: z.string().email("Invalid email address"),
@@ -71,7 +71,7 @@ const Auth = () => {
 
         toast({
           title: "Account created!",
-          description: "Welcome to ContentIQ. Redirecting to dashboard...",
+          description: "Welcome to CloudNyn. Redirecting to dashboard...",
         });
       }
     } catch (error: any) {
@@ -100,8 +100,8 @@ const Auth = () => {
       <Card className="glass-card p-8 w-full max-w-md animate-fade-in">
         <div className="text-center mb-8">
           <div className="inline-flex items-center gap-2 mb-4">
-            <Sparkles className="h-6 w-6 text-primary" />
-            <h1 className="text-3xl font-bold gradient-text">ContentIQ</h1>
+            <img src={cloudnynLogo} alt="CloudNyn" className="h-8 w-auto" />
+            <h1 className="text-3xl font-bold gradient-text">CloudNyn</h1>
           </div>
           <p className="text-muted-foreground">
             {isLogin ? "Welcome back!" : "Create your account"}

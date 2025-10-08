@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Check, Sparkles } from "lucide-react";
+import { Check } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import cloudnynLogo from "@/assets/cloudnyn-logo.png";
 import { useState } from "react";
 
 const pricingTiers = [
@@ -134,7 +135,7 @@ const Pricing = () => {
               {tier.popular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                   <span className="bg-gradient-to-r from-primary to-accent px-4 py-1 rounded-full text-sm font-medium flex items-center gap-1">
-                    <Sparkles className="h-3 w-3" />
+                    <img src={cloudnynLogo} alt="CloudNyn" className="h-3 w-auto" />
                     Most Popular
                   </span>
                 </div>

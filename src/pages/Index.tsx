@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Instagram, Youtube, Sparkles, TrendingUp, Target, Zap } from "lucide-react";
+import { Instagram, Youtube, TrendingUp, Target, Zap } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import cloudnynLogo from "@/assets/cloudnyn-logo.png";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ const Index = () => {
         
         <div className="relative max-w-5xl mx-auto text-center space-y-8 animate-fade-in">
           <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 text-sm">
-            <Sparkles className="h-4 w-4 text-primary animate-glow" />
+            <img src={cloudnynLogo} alt="CloudNyn" className="h-4 w-auto" />
             <span>AI-Powered Social Media Strategy</span>
           </div>
           
@@ -33,7 +34,7 @@ const Index = () => {
               onClick={() => navigate("/pricing")}
               className="bg-gradient-to-r from-primary to-blue-500 hover:opacity-90 glow-primary"
             >
-              <Sparkles className="mr-2 h-5 w-5" />
+              <img src={cloudnynLogo} alt="CloudNyn" className="mr-2 h-5 w-auto" />
               Get Started Free
             </Button>
             <Button 
@@ -105,7 +106,7 @@ const Index = () => {
             onClick={() => navigate("/pricing")}
             className="bg-gradient-to-r from-primary to-blue-500 hover:opacity-90 glow-primary"
           >
-            <Sparkles className="mr-2 h-5 w-5" />
+            <img src={cloudnynLogo} alt="CloudNyn" className="mr-2 h-5 w-auto" />
             View Pricing
           </Button>
         </div>
