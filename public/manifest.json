@@ -1,0 +1,24 @@
+{
+  "name": "CloudNyn - AI Social Media Strategy Tool",
+  "short_name": "CloudNyn",
+  "description": "AI-powered social media strategy tool that analyzes your content performance and provides personalized recommendations for Instagram, YouTube, and TikTok.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3B82F6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["business", "productivity", "social"],
+  "lang": "en",
+  "dir": "ltr",
+  "scope": "/",
+  "prefer_related_applications": false
+}
+
