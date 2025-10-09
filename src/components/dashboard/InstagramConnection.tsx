@@ -50,6 +50,15 @@ export const InstagramConnection = () => {
     }
   };
 
+  const useDemoInstagram = () => {
+    const demoId = '17841405822304914'; // Example formatted IG Business Account ID
+    localStorage.setItem('instagramAccountId', demoId);
+    toast({
+      title: 'Demo Enabled',
+      description: 'Using demo Instagram data. No login required.',
+    });
+  };
+
   const handleDisconnect = () => {
     localStorage.removeItem('instagramAccountId');
     setInstagramAccountId('');
@@ -159,6 +168,11 @@ export const InstagramConnection = () => {
               </Button>
             )}
           </div>
+          {!isConnected && (
+            <div>
+              <Button variant="ghost" className="text-xs px-2" onClick={useDemoInstagram}>Use Demo Instagram</Button>
+            </div>
+          )}
         </div>
       </div>
     </Card>

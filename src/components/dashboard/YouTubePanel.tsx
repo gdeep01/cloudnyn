@@ -26,6 +26,13 @@ export const YouTubePanel = () => {
     }
   };
 
+  const useDemoChannel = async () => {
+    const demoId = "UCX6OQ3DkcsbYNE6H8uQQuVA"; // Public channel ID
+    localStorage.setItem("youtube_channel_id", demoId);
+    setChannelId(demoId);
+    await refresh();
+  };
+
   return (
     <Card className="glass-card p-6">
       <div className="space-y-4">
@@ -45,6 +52,9 @@ export const YouTubePanel = () => {
             <div className="flex gap-2">
               <Input value={usernameOrHandle} onChange={(e) => setUsernameOrHandle(e.target.value)} placeholder="@handle or channel name" />
               <Button onClick={resolveChannel} disabled={!usernameOrHandle.trim()}>Connect</Button>
+            </div>
+            <div>
+              <Button variant="ghost" className="text-xs px-2" onClick={useDemoChannel}>Use Demo Channel</Button>
             </div>
           </div>
         )}
