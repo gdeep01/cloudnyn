@@ -238,7 +238,7 @@ class AnalyticsService {
       const time = postingTimes[index % postingTimes.length] || '6:00 PM';
       const type = contentTypes[index % contentTypes.length] || 'Post';
       const topic = topics[index % topics.length];
-      const dayHashtags = hashtags.slice(index * 3, (index + 1) * 3).join(' ');
+      const dayHashtags = hashtags.slice(index * 3, (index + 1) * 3);
 
       return {
         day,

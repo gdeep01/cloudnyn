@@ -123,7 +123,7 @@ export const useInstagramConnection = () => {
     setError(null);
 
     try {
-      const connected = await instagramAPI.testConnection();
+      const connected = await getInstagramAPI().testConnection();
       setIsConnected(connected);
       
       if (!connected) {

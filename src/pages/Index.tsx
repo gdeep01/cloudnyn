@@ -1,7 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { Instagram, Youtube, TrendingUp, Target, Zap } from "lucide-react";
+import { Instagram, Youtube, TrendingUp, Target, Zap, Play } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import cloudnynLogo from "@/assets/cloudnyn-logo.png";
+import demoDashboard from "@/assets/demo-dashboard.png";
+import demoInsights from "@/assets/demo-insights.png";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -55,7 +57,61 @@ const Index = () => {
       {/* Features Section */}
       <section className="px-6 py-20">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
+            <div className="space-y-6">
+              <h2 className="text-4xl font-bold">
+                Real-Time Analytics <span className="gradient-text">from Instagram & YouTube</span>
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                Connect your accounts and get instant access to performance metrics, audience insights, and growth trends.
+              </p>
+              <div className="flex gap-4">
+                <div className="flex items-center gap-2 glass-card px-4 py-2 rounded-lg">
+                  <Instagram className="h-5 w-5 text-pink-500" />
+                  <span className="font-medium">Instagram</span>
+                </div>
+                <div className="flex items-center gap-2 glass-card px-4 py-2 rounded-lg">
+                  <Youtube className="h-5 w-5 text-red-500" />
+                  <span className="font-medium">YouTube</span>
+                </div>
+              </div>
+            </div>
+            <div className="relative animate-slide-up">
+              <img 
+                src={demoDashboard} 
+                alt="Analytics Dashboard" 
+                className="rounded-xl shadow-2xl border border-primary/20"
+              />
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="relative animate-slide-up order-2 md:order-1">
+              <img 
+                src={demoInsights} 
+                alt="AI Insights" 
+                className="rounded-xl shadow-2xl border border-primary/20"
+              />
+            </div>
+            <div className="space-y-6 order-1 md:order-2">
+              <h2 className="text-4xl font-bold">
+                AI-Powered <span className="gradient-text">Content Recommendations</span>
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                Get personalized content suggestions, optimal posting times, and hashtag recommendations based on your performance data.
+              </p>
+              <Button 
+                size="lg"
+                onClick={() => navigate("/auth")}
+                className="bg-gradient-to-r from-primary to-blue-500 hover:opacity-90"
+              >
+                <Play className="mr-2 h-5 w-5" />
+                Try It Now
+              </Button>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mt-20">
             <div className="glass-card p-6 space-y-4 animate-slide-up hover:scale-105 transition-transform">
               <div className="bg-primary/20 w-12 h-12 rounded-lg flex items-center justify-center">
                 <TrendingUp className="h-6 w-6 text-primary" />

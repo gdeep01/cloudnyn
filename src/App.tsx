@@ -8,6 +8,8 @@ import Dashboard from "./pages/Dashboard";
 import Pricing from "./pages/Pricing";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
+import OAuthCallbackInstagram from "./pages/OAuthCallbackInstagram";
+import OAuthCallbackGoogle from "./pages/OAuthCallbackGoogle";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +24,8 @@ const App = () => (
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/auth" element={<Auth />} />
+          <Route path="/auth/instagram/callback" element={<OAuthCallbackInstagram />} />
+          <Route path="/auth/google/callback" element={<OAuthCallbackGoogle />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

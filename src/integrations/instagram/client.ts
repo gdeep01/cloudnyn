@@ -223,10 +223,11 @@ export const InstagramService = {
   // Get comprehensive account data
   async getAccountData(instagramAccountId: string) {
     try {
+      const api = getInstagramAPI();
       const [accountInfo, recentMedia, insights] = await Promise.all([
-        instagramAPI.getAccountInfo(instagramAccountId),
-        instagramAPI.getRecentMedia(instagramAccountId, 10),
-        instagramAPI.getAccountInsights(instagramAccountId)
+        api.getAccountInfo(instagramAccountId),
+        api.getRecentMedia(instagramAccountId, 10),
+        api.getAccountInsights(instagramAccountId)
       ]);
 
       return {
@@ -243,13 +244,14 @@ export const InstagramService = {
   // Get media with insights
   async getMediaWithInsights(instagramAccountId: string, limit: number = 10) {
     try {
-      const mediaResponse = await instagramAPI.getRecentMedia(instagramAccountId, limit);
+      const api = getInstagramAPI();
+      const mediaResponse = await api.getRecentMedia(instagramAccountId, limit);
       
       // Get insights for each media item
       const mediaWithInsights = await Promise.all(
         mediaResponse.data.map(async (media) => {
           try {
-            const insightsResponse = await instagramAPI.getMediaInsights(media.id);
+            const insightsResponse = await api.getMediaInsights(media.id);
             const insights: any = {};
             
             insightsResponse.data.forEach(metric => {
