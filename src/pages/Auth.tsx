@@ -7,6 +7,8 @@ import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 import cloudnynLogo from "@/assets/cloudnyn-logo.png";
+import { Instagram, Youtube } from "lucide-react";
+import { OAUTH_CONFIG } from "@/config/oauth";
 
 const authSchema = z.object({
   email: z.string().email("Invalid email address"),
@@ -149,6 +151,54 @@ const Auth = () => {
               ? "Don't have an account? Sign up"
               : "Already have an account? Sign in"}
           </button>
+        </div>
+
+        <div className="mt-8 space-y-3">
+          <div className="relative">
+            <div className="absolute inset-0 flex items-center">
+              <span className="w-full border-t" />
+            </div>
+            <div className="relative flex justify-center text-xs uppercase">
+              <span className="bg-card px-2 text-muted-foreground">Or connect with</span>
+            </div>
+          </div>
+
+          <Button
+            variant="outline"
+            className="w-full"
+            type="button"
+            onClick={() => {
+              const q = new URLSearchParams({
+                client_id: OAUTH_CONFIG.instagram.clientId,
+                redirect_uri: OAUTH_CONFIG.instagram.redirectUri,
+                response_type: "code",
+                scope: OAUTH_CONFIG.instagram.scope,
+              });
+              window.location.href = `${OAUTH_CONFIG.instagram.authUrl}?${q.toString()}`;
+            }}
+          >
+            <Instagram className="mr-2 h-4 w-4" /> Connect Instagram
+          </Button>
+
+          <Button
+            variant="outline"
+            className="w-full"
+            type="button"
+            onClick={() => {
+              const q = new URLSearchParams({
+                client_id: OAUTH_CONFIG.google.clientId,
+                redirect_uri: OAUTH_CONFIG.google.redirectUri,
+                response_type: "code",
+                access_type: "offline",
+                prompt: "consent",
+                scope: OAUTH_CONFIG.google.scope,
+                include_granted_scopes: "true",
+              });
+              window.location.href = `https://accounts.google.com/o/oauth2/v2/auth?${q.toString()}`;
+            }}
+          >
+            <Youtube className="mr-2 h-4 w-4" /> Connect Google (YouTube)
+          </Button>
         </div>
       </Card>
     </div>
