@@ -7,7 +7,7 @@ import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 import cloudnynLogo from "@/assets/cloudnyn-logo.png";
-import { Instagram, Youtube } from "lucide-react";
+import { Instagram, Youtube, Loader2 } from "lucide-react";
 import { OAUTH_CONFIG } from "@/config/oauth";
 
 const authSchema = z.object({
@@ -20,6 +20,7 @@ const Auth = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [oauthLoading, setOauthLoading] = useState<'instagram' | 'google' | null>(null);
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -167,7 +168,18 @@ const Auth = () => {
             variant="outline"
             className="w-full"
             type="button"
+            disabled={oauthLoading !== null}
             onClick={() => {
+              if (!OAUTH_CONFIG.instagram.clientId) {
+                toast({
+                  title: "Configuration Error",
+                  description: "Instagram Client ID is not configured. Please contact support.",
+                  variant: "destructive",
+                });
+                return;
+              }
+              
+              setOauthLoading('instagram');
               const q = new URLSearchParams({
                 client_id: OAUTH_CONFIG.instagram.clientId,
                 redirect_uri: OAUTH_CONFIG.instagram.redirectUri,
@@ -177,14 +189,35 @@ const Auth = () => {
               window.location.href = `${OAUTH_CONFIG.instagram.authUrl}?${q.toString()}`;
             }}
           >
-            <Instagram className="mr-2 h-4 w-4" /> Connect Instagram
+            {oauthLoading === 'instagram' ? (
+              <>
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                Connecting...
+              </>
+            ) : (
+              <>
+                <Instagram className="mr-2 h-4 w-4" />
+                Connect Instagram
+              </>
+            )}
           </Button>
 
           <Button
             variant="outline"
             className="w-full"
             type="button"
+            disabled={oauthLoading !== null}
             onClick={() => {
+              if (!OAUTH_CONFIG.google.clientId) {
+                toast({
+                  title: "Configuration Error",
+                  description: "Google Client ID is not configured. Please contact support.",
+                  variant: "destructive",
+                });
+                return;
+              }
+              
+              setOauthLoading('google');
               const q = new URLSearchParams({
                 client_id: OAUTH_CONFIG.google.clientId,
                 redirect_uri: OAUTH_CONFIG.google.redirectUri,
@@ -197,7 +230,17 @@ const Auth = () => {
               window.location.href = `https://accounts.google.com/o/oauth2/v2/auth?${q.toString()}`;
             }}
           >
-            <Youtube className="mr-2 h-4 w-4" /> Connect Google (YouTube)
+            {oauthLoading === 'google' ? (
+              <>
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                Connecting...
+              </>
+            ) : (
+              <>
+                <Youtube className="mr-2 h-4 w-4" />
+                Connect Google (YouTube)
+              </>
+            )}
           </Button>
         </div>
       </Card>
