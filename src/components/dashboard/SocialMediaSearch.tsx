@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Search, Youtube, Instagram } from "lucide-react";
+import { Sparkles, Youtube, Instagram } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { youtubeAPI } from "@/integrations/youtube/client";
 
@@ -163,7 +163,7 @@ export const SocialMediaSearch = ({ onYouTubeData, onInstagramData }: SocialMedi
               {loadingYoutube ? (
                 <span className="animate-spin">⏳</span>
               ) : (
-                <Search className="h-4 w-4" />
+                <Sparkles className="h-4 w-4" />
               )}
             </Button>
           </div>
@@ -191,7 +191,7 @@ export const SocialMediaSearch = ({ onYouTubeData, onInstagramData }: SocialMedi
               {loadingInstagram ? (
                 <span className="animate-spin">⏳</span>
               ) : (
-                <Search className="h-4 w-4" />
+                <Sparkles className="h-4 w-4" />
               )}
             </Button>
           </div>

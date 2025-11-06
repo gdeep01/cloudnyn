@@ -3,7 +3,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { Crown, Settings } from "lucide-react";
+import { Award, Settings2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 interface SubscriptionData {
@@ -78,7 +78,7 @@ export const SubscriptionStatus = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="bg-muted p-2 rounded-lg">
-              <Crown className="h-5 w-5 text-muted-foreground" />
+              <Award className="h-5 w-5 text-muted-foreground" />
             </div>
             <div>
               <p className="font-semibold">Free Plan</p>
@@ -101,7 +101,7 @@ export const SubscriptionStatus = () => {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="bg-primary/20 p-2 rounded-lg">
-            <Crown className="h-5 w-5 text-primary" />
+            <Award className="h-5 w-5 text-primary" />
           </div>
           <div>
             <p className="font-semibold flex items-center gap-2">
@@ -119,7 +119,7 @@ export const SubscriptionStatus = () => {
           variant="outline"
           size="sm"
         >
-          <Settings className="h-4 w-4 mr-2" />
+          <Settings2 className="h-4 w-4 mr-2" />
           Manage
         </Button>
       </div>

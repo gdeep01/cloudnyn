@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Instagram, Youtube, TrendingUp, Target, Zap, Play } from "lucide-react";
+import { Instagram, Youtube, BarChart3, Brain, Sparkles, Rocket } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import cloudnynLogo from "@/assets/cloudnyn-logo.png";
 import demoDashboard from "@/assets/demo-dashboard.png";
@@ -105,8 +105,8 @@ const Index = () => {
                 onClick={() => navigate("/auth")}
                 className="bg-gradient-to-r from-primary to-blue-500 hover:opacity-90"
               >
-                <Play className="mr-2 h-5 w-5" />
-                Try It Now
+              <Rocket className="mr-2 h-5 w-5" />
+              Try It Now
               </Button>
             </div>
           </div>
@@ -114,7 +114,7 @@ const Index = () => {
           <div className="grid md:grid-cols-3 gap-8 mt-20">
             <div className="glass-card p-6 space-y-4 animate-slide-up hover:scale-105 transition-transform">
               <div className="bg-primary/20 w-12 h-12 rounded-lg flex items-center justify-center">
-                <TrendingUp className="h-6 w-6 text-primary" />
+                <BarChart3 className="h-6 w-6 text-primary" />
               </div>
               <h3 className="text-xl font-semibold">Past Performance</h3>
               <p className="text-muted-foreground">
@@ -125,7 +125,7 @@ const Index = () => {
 
             <div className="glass-card p-6 space-y-4 animate-slide-up hover:scale-105 transition-transform" style={{ animationDelay: "0.1s" }}>
               <div className="bg-accent/20 w-12 h-12 rounded-lg flex items-center justify-center">
-                <Target className="h-6 w-6 text-accent" />
+                <Brain className="h-6 w-6 text-accent" />
               </div>
               <h3 className="text-xl font-semibold">Current Trends</h3>
               <p className="text-muted-foreground">
@@ -136,7 +136,7 @@ const Index = () => {
 
             <div className="glass-card p-6 space-y-4 animate-slide-up hover:scale-105 transition-transform" style={{ animationDelay: "0.2s" }}>
               <div className="bg-blue-500/20 w-12 h-12 rounded-lg flex items-center justify-center">
-                <Zap className="h-6 w-6 text-blue-400" />
+                <Sparkles className="h-6 w-6 text-blue-400" />
               </div>
               <h3 className="text-xl font-semibold">AI Action Plan</h3>
               <p className="text-muted-foreground">

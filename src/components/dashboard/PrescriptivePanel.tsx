@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Clock, Hash, Video } from "lucide-react";
+import { Clock, Sparkles, Film } from "lucide-react";
 import { useState } from "react";
 import cloudnynLogo from "@/assets/cloudnyn-logo.png";
 
@@ -10,7 +10,7 @@ const actionPlan = [
     type: "Reel",
     topic: "Behind-the-scenes content",
     hashtags: "#BehindTheScenes #CreatorLife #ContentCreation",
-    icon: Video,
+    icon: Film,
   },
   {
     day: "Tuesday",
@@ -18,7 +18,7 @@ const actionPlan = [
     type: "Carousel",
     topic: "Tips & tricks in your niche",
     hashtags: "#ProTips #Tutorial #Learning",
-    icon: Hash,
+    icon: Sparkles,
   },
   {
     day: "Thursday",
@@ -26,7 +26,7 @@ const actionPlan = [
     type: "Reel",
     topic: "Trending challenge or meme",
     hashtags: "#Trending #Viral #Challenge",
-    icon: Video,
+    icon: Film,
   },
   {
     day: "Saturday",
