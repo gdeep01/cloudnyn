@@ -5,13 +5,30 @@ import { PerformanceChart } from "@/components/dashboard/PerformanceChart";
 import { TrendsChart } from "@/components/dashboard/TrendsChart";
 import { PrescriptivePanel } from "@/components/dashboard/PrescriptivePanel";
 import { SubscriptionStatus } from "@/components/dashboard/SubscriptionStatus";
+import { SocialMediaSearch } from "@/components/dashboard/SocialMediaSearch";
+import { useState } from "react";
 
 const Dashboard = () => {
+  const [youtubeData, setYoutubeData] = useState<any>(null);
+  const [instagramData, setInstagramData] = useState<any>(null);
+
   return (
     <div className="min-h-screen p-6 md:p-8">
       <div className="max-w-7xl mx-auto space-y-8 animate-fade-in">
         {/* Subscription Status */}
         <SubscriptionStatus />
+
+        {/* Social Media Search */}
+        <SocialMediaSearch 
+          onYouTubeData={(channelId, data) => {
+            console.log("YouTube data:", channelId, data);
+            setYoutubeData(data);
+          }}
+          onInstagramData={(username, data) => {
+            console.log("Instagram data:", username, data);
+            setInstagramData(data);
+          }}
+        />
 
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
